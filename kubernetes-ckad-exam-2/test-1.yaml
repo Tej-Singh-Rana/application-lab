@@ -1,0 +1,15 @@
+---
+kubectl create deployment my-webapp --image=nginx 
+kubectl label deploy my-webapp tier=frontend
+kubectl label deploy my-webapp app-
+kubectl expose deploy my-webapp --name front-end-service --port 80 --type NodePort
+kubectl edit svc front-end-service 
+
+livenessProbe:
+  httpGet:
+    path: /live
+    port: 8080
+  periodSeconds: 1
+  initialDelaySeconds: 80
+
+

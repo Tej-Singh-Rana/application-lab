@@ -1,0 +1,5 @@
+
+
+kubectl taint nodes node01 app_type=alpha:NoSchedule
+
+kubectl run alpha --image=redis -oyaml --dry-run=client > test2.yaml

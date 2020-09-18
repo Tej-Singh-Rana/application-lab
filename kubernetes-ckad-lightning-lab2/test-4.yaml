@@ -1,0 +1,26 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: dev2406
+
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: my-busybox
+  namespace: dev2406
+spec:
+  nodeName: controlplane
+  containers:
+    - name: secret
+      image: busybox
+      command: ["sleep","3600"]
+      volumeMounts:
+        - name: secret-volume
+          mountPath: /etc/secret-volume
+          readOnly: true
+  volumes:
+    - name: secret-volume
+      secret:
+        secretName: dotfile-secret
