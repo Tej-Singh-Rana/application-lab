@@ -13,7 +13,7 @@ spec:
       labels:
         app: redis
     spec:
-      nodeName: controlplane | master
+      nodeName: controlplane
       containers:
         - name: redis
           image: redis:alpine

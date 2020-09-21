@@ -15,7 +15,7 @@ spec:
   containers:
     - name: secret
       image: busybox
-      command: ["sleep","3600"]
+      command: [ "sleep","3600" ]
       volumeMounts:
         - name: secret-volume
           mountPath: /etc/secret-volume

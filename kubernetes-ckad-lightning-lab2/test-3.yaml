@@ -9,8 +9,8 @@ spec:
       name: dice
     spec:
       backoffLimit: 25
-      ttlSecondsAfterFinished: 20
-      completions: 6
+      activeDeadlineSeconds: 20
+      completions: 1
       template:
         metadata:
           name: throw-dice-pod
@@ -18,5 +18,5 @@ spec:
           containers:
           - image: kodekloud/throw-dice
             name: throw-dice
-          restartPolicy: Never
+          restartPolicy: OnFailure
   schedule: 1 * * * *
